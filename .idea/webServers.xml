@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="517f7018-cd3f-4ef2-8f4c-5abe272f82f6" name="test_server" url="http://localhost/nuaria">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\nuaria" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
