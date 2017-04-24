@@ -1,10 +1,11 @@
+<?php session_start(); ?>
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Nuaria Media Group</title>
     <link href="styles/main.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="images/ared.png">
+    <link id="favicon" rel="shortcut icon" href="images/ared.png" type="image/x-icon">
 </head>
 
 <body>
@@ -78,9 +79,12 @@
     <div class="container">
         <div id="contact">
             <h2>Request a quote</h2>
-            <form action="/quote.php" method="post">
-                <label for="name">Name: </label><br>
-                <input type="text" id="name" name="name">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <label for="fname">First Name: </label><br>
+                <input type="text" id="fname" name="first_name">
+                <br><br>
+                <label for="lname">Last Name: </label><br>
+                <input type="text" id="lname" name="last_name">
                 <br><br>
                 <label for="email">Email: </label><br>
                 <input type="text" id="email" name="email">
@@ -96,9 +100,42 @@
                     <option value="other">Other</option>
                 </select>
                 <br><br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" name="submit">
             </form>
         </div>
+
+<!-- Test from inputs -->
+<?php
+require 'connection.php';
+
+    // Set variables
+    $fname = $_POST['first_name'];
+    $lname = $_POST['last_name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $service = $_POST['service'];
+
+    // protect from SQL injections
+    $fname = stripslashes($fname);
+    $fname = mysqli_real_escape_string($con, $fname);
+
+    $lname = stripslashes($lname);
+    $lname = mysqli_real_escape_string($con, $lname);
+
+    $email = stripslashes($email);
+    $email = mysqli_real_escape_string($con, $email);
+
+    $phone = stripslashes($phone);
+    $phone = mysqli_real_escape_string($con, $phone);
+
+    $service = stripslashes($service);
+    $service = mysqli_real_escape_string($con, $service);
+
+    // MySQL query to test if user has an account in the database
+    /*$query = "";
+    $result = mysqli_query( $con, $query );
+    $check = mysqli_num_rows( $result );*/
+?>
     </div>
 </div>
 <div class="clear"></div>
