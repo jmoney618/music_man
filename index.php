@@ -9,24 +9,9 @@
 </head>
 
 <body>
-<header><!-- Header, nav, & hero image -->
-    <img src="images/hero_music.png" id="hero_image" alt=""/><!-- Hero img -->
-    <div class="container">
-        <div id="top-navigation">
-            <div id="logo_wrapper"><a href="index.php" id="logo">Nuaria Media Group</a></div>
-            <nav>
-                <ul>
-                    <li><a href="#">live recording</a></li>
-                    <li><a href="#">mix &amp; master</a></li>
-                    <li><a href="#">web design</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div id="hero_article">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Ut enim ad minim
-        </div>
-    </div>
-</header>
+<!-- include PHP heading script -->
+<?php include 'heading.php' ?>
+
 <!-- Main content section 1 -->
 <div class="content">
     <div class="container">
@@ -58,7 +43,6 @@
         </div>
     </div>
 </div><!-- End preview -->
-<div class="clear"></div>
 <!-- Main content section 2 -->
 <div class="content">
     <div class="container">
@@ -74,71 +58,6 @@
         </div><!-- End Web Design and caption div -->
     </div>
 </div><!-- End Main content section 2 -->
-<!-- Form section -->
-<div class="red-backdrop">
-    <div class="container">
-        <div id="contact">
-            <h2>Request a quote</h2>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <label for="fname">First Name: </label><br>
-                <input type="text" id="fname" name="first_name">
-                <br><br>
-                <label for="lname">Last Name: </label><br>
-                <input type="text" id="lname" name="last_name">
-                <br><br>
-                <label for="email">Email: </label><br>
-                <input type="text" id="email" name="email">
-                <br><br>
-                <label for="phone">Phone: </label><br>
-                <input type="text" id="phone" name="phone">
-                <br><br>
-                <label for="service">Service: </label><br>
-                <select id="service" name="service">
-                    <option value=""></option>
-                    <option value="live recording">Live recording</option>
-                    <option value="mix and master">Mix &amp; Master</option>
-                    <option value="other">Other</option>
-                </select>
-                <br><br>
-                <input type="submit" value="Submit" name="submit">
-            </form>
-        </div>
-
-<!-- Test from inputs -->
-<?php
-require 'connection.php';
-
-    // Set variables
-    $fname = $_POST['first_name'];
-    $lname = $_POST['last_name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $service = $_POST['service'];
-
-    // protect from SQL injections
-    $fname = stripslashes($fname);
-    $fname = mysqli_real_escape_string($con, $fname);
-
-    $lname = stripslashes($lname);
-    $lname = mysqli_real_escape_string($con, $lname);
-
-    $email = stripslashes($email);
-    $email = mysqli_real_escape_string($con, $email);
-
-    $phone = stripslashes($phone);
-    $phone = mysqli_real_escape_string($con, $phone);
-
-    $service = stripslashes($service);
-    $service = mysqli_real_escape_string($con, $service);
-
-    // MySQL query to test if user has an account in the database
-    /*$query = "";
-    $result = mysqli_query( $con, $query );
-    $check = mysqli_num_rows( $result );*/
-?>
-    </div>
-</div>
-<div class="clear"></div>
-<footer> Nuaria Media Group&copy; | <a href="#">About Us</a> | <a href="#">Contact Us</a></footer>
+<?php include 'footer.php' ?>
 </body>
 </html>

@@ -35,7 +35,7 @@ a {
 }
 #logo_wrapper {
 	height: 50px;
-	width: 410px;
+	width: 240px;
 	position: relative;
 	float: left;
 	text-indent: -5000px;
@@ -129,6 +129,14 @@ nav a:hover {
 	text-align: center;
 	-webkit-box-shadow: 0 0 20px 0 rgba(130,130,130,0.75);
 	box-shadow: 0 0 20px 0 rgba(130,130,130,0.75);
+}
+#form_container {
+	color: #cf0000;
+	font-weight: 800;
+	float: left;
+	width: 100%;
+	text-align: center;
+	padding: 40px 0;
 }
 #contact {
 	margin: 20px auto;
