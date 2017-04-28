@@ -13,7 +13,7 @@ session_start(); ?>
     <title>Nuaria Media Group</title>
     <link href="styles/main.css" rel="stylesheet" type="text/css">
     <link id="favicon" rel="shortcut icon" href="images/ared.png" type="image/x-icon">
-
+    <script src="scripts/jquery-3.2.1.slim.min.js"></script>
 </head>
 
 <body>
@@ -104,11 +104,19 @@ if (isset($_POST['submit'])) {
         // Query to insert new record into CustomerService table in database
         $insert_customer_service = "INSERT INTO nuaria.customerservice (customerID, serviceID) VALUES ('$row_customer', '$row_service')";
         $result = mysqli_query($con, $insert_customer_service);
+
+        // Output a thank you message
+        echo "<p class='red-backdrop'>Thank you for your interest.  We will contact you shortly.</p>";
     }
 }
 
 mysqli_close($con);
 ?>
 <?php include 'footer.php' ?>
+<script>
+    $(document).ready(function() {
+        $("p").insertBefore("h2");
+    })
+</script>
 </body>
 </html>
